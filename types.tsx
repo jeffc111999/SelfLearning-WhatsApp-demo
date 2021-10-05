@@ -28,24 +28,29 @@ export type MainTabParamList = {
 }
 
 export type TabOneParamList = {
-  TabOneScreen: undefined;
+  TabOneNavigator: undefined;
 }
 
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 }
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
-  RootStackParamList,
-  Screen
->;
+export type ChatRoom = {
+  id: String;
+  users: User[];
+  lastMessage: Message;
+}
 
-export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-};
+export type User = {
+  id: String;
+  name: String;
+  imageUri: String;
+  status: String;
+}
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, Screen>,
-  NativeStackScreenProps<RootStackParamList>
->;
+export type Message = {
+  id: String;
+  content: string;
+  createdAt: string;
+  user: User;
+}
