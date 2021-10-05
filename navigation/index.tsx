@@ -6,20 +6,16 @@
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
-import { View } from '../components/Themed';
-import { Octicons, MaterialCommunityIcons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import { ColorSchemeName, View } from 'react-native';
+import { Octicons, MaterialCommunityIcons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
-import { FontAwesome5 } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import ContactsScreen from '../screens/ContactsScreen';
 import { RootStackParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-
 import MainTabNavigator from './MainTabNavigator';
-import ChatRooms from '../data/ChatRooms';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -88,6 +84,7 @@ function RootNavigator() {
             </View>
           )
         })} />
+      <Stack.Screen name="Contacts" component={ContactsScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
